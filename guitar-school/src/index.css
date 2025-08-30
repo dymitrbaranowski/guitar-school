@@ -1,0 +1,220 @@
+/* --- Общие стили --- */
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f9f9f9;
+  margin: 0;
+  padding: 0;
+  color: #333;
+}
+h1,
+h2,
+h3 {
+  margin: 0 0 10px 0;
+}
+p {
+  margin: 5px 0 10px 0;
+}
+a {
+  color: #2196f3;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+/* Header & Navigation */
+header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  background: #222;
+  color: white;
+}
+nav a {
+  margin: 0 10px;
+  font-weight: bold;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 15px;
+  background: #eee;
+  margin-top: 30px;
+}
+
+/* Карточки уроков */
+.lesson-card {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s;
+}
+.lesson-card:hover {
+  transform: translateY(-3px);
+}
+
+/* Прогресс-бары */
+.progress-container {
+  background: #e0e0e0;
+  border-radius: 8px;
+  overflow: hidden;
+  height: 16px;
+  margin-top: 5px;
+}
+.progress-bar {
+  height: 100%;
+  background: #2196f3;
+  transition: width 0.5s ease-in-out, background-color 0.3s;
+}
+.progress-bar.completed {
+  background: #4caf50;
+}
+.progress-bar.completed::after {
+  content: "";
+  display: block;
+  animation: pulse 1.2s infinite;
+}
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 5px #4caf50;
+  }
+  50% {
+    box-shadow: 0 0 15px #4caf50;
+  }
+  100% {
+    box-shadow: 0 0 5px #4caf50;
+  }
+}
+
+/* Кнопки */
+button,
+.btn {
+  padding: 8px 16px;
+  background: #2196f3;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.2s ease-in-out;
+}
+button:hover,
+.btn:hover {
+  background: #1976d2;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+button:active,
+.btn:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Чеклист заданий */
+.tasks-list {
+  list-style: none;
+  padding: 0;
+}
+.tasks-list li {
+  margin-bottom: 8px;
+}
+.tasks-list input[type="checkbox"] {
+  margin-right: 8px;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+.tasks-list input[type="checkbox"]:checked {
+  transform: scale(1.2);
+}
+
+/* Видео и картинки аккордов */
+iframe {
+  max-width: 100%;
+  border-radius: 8px;
+}
+.chord-image {
+  width: 120px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+
+/* Главный блок прогресса */
+.overall-progress {
+  padding: 15px;
+  border: 2px solid #ddd;
+  border-radius: 10px;
+  background: #f0f9ff;
+  margin-bottom: 25px;
+}
+
+/* --- Анимация появления --- */
+.fade-up {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeUp 0.8s forwards;
+}
+.fade-up-delay {
+  animation-delay: 0.2s;
+}
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* --- Отзывчивость --- */
+@media (max-width: 1024px) {
+  .lesson-card {
+    padding: 15px;
+  }
+  .chord-image {
+    width: 90px;
+    margin-right: 8px;
+    margin-bottom: 8px;
+  }
+  iframe {
+    width: 100%;
+    height: auto;
+  }
+  .progress-container {
+    height: 14px;
+  }
+  .overall-progress {
+    padding: 12px;
+  }
+}
+@media (max-width: 600px) {
+  header {
+    padding: 15px;
+  }
+  nav a {
+    display: block;
+    margin: 5px 0;
+  }
+  .lesson-card {
+    padding: 12px;
+  }
+  .chord-image {
+    width: 70px;
+  }
+  .progress-container {
+    height: 12px;
+  }
+  .overall-progress {
+    padding: 10px;
+  }
+  .btn {
+    width: 100%;
+    text-align: center;
+    padding: 10px 0;
+    display: block;
+  }
+}
